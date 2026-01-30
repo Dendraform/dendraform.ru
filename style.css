@@ -1,108 +1,62 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     background: #000;
     color: #fff;
-    overflow-x: hidden;
+    overflow: hidden; /* КЛЮЧЕВО */
 }
 
 .container {
-    position: relative;
-    width: 100%;
-    min-height: 300vh; /* Высокая страница для скролла */
-}
-
-.gallery {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
+/* Фиксированный экран */
+.gallery {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Кадр */
 .image-item {
     position: absolute;
     width: 90%;
     max-width: 1200px;
     height: 80vh;
-    overflow: hidden;
     opacity: 0;
-    transform: translateY(100vh); /* Начальная позиция - за пределами экрана */
-    transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), 
-                opacity 0.5s ease;
+    transform: translateY(100vh);
+    transition:
+        transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 0.4s ease;
     will-change: transform, opacity;
 }
 
+/* Активный кадр */
 .image-item.active {
     opacity: 1;
-    transform: translateY(0); /* Активное изображение по центру */
+    transform: translateY(0);
+    z-index: 2;
 }
 
+/* Уходящий кадр */
 .image-item.exit {
     opacity: 0;
-    transform: translateY(-100vh); /* Выход вверх */
+    transform: translateY(-100vh);
+    z-index: 1;
 }
 
+/* Картинка */
 .image-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
+    object-fit: cover; /* Работает с любыми пропорциями */
 }
 
+/* Текст */
 .project-info {
     position: absolute;
-    bottom: 40px;
     left: 40px;
-    z-index: 10;
-}
-
-.project-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-.project-info p {
-    font-size: 1.1rem;
-    opacity: 0.8;
-}
-
-.content {
-    position: absolute;
-    top: 100vh;
-    width: 100%;
-    padding: 100px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    text-align: center;
-    font-weight: 300;
-}
-
-.scroll-hint {
-    font-size: 2rem;
-    animation: bounce 2s infinite;
-    margin-top: 20px;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
+    bottom: 40px;
 }
