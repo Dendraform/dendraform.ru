@@ -1,37 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation - Alex Bait Style</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
-  <header class="main-header">
-    <div class="logo">DENDRAFORM</div>
-    <nav class="main-nav">
-      <a href="#">Projects</a>
-      <a href="#">About</a>
-    </nav>
-  </header>
-
-  <div class="scroll-arrows">
-    <div class="arrow up">↑</div>
-    <div class="arrow down">↓</div>
-  </div>
-
-  <div class="scroll-section active" style="background-image:url('images/object-01-01.jpg');">
-    <div class="overlay">
-      <h1>Object 01</h1>
-      <a href="object-01.html" class="btn-open">Open</a>
+    <div class="container">
+        <!-- Секция с изображениями -->
+        <section class="gallery">
+            <div class="image-item active">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Пейзаж 1">
+                <div class="project-info">
+                    <h3>Проект 01</h3>
+                    <p>Горный ландшафт</p>
+                </div>
+            </div>
+            
+            <div class="image-item">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Пейзаж 2">
+                <div class="project-info">
+                    <h3>Проект 02</h3>
+                    <p>Северное сияние</p>
+                </div>
+            </div>
+            
+            <div class="image-item">
+                <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07" alt="Пейзаж 3">
+                <div class="project-info">
+                    <h3>Проект 03</h3>
+                    <p>Лесная тропа</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Контент для создания высоты страницы -->
+        <section class="content">
+            <h2>Прокрутите вниз, чтобы увидеть эффект</h2>
+            <div class="scroll-hint">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
     </div>
-  </div>
-
-  <div class="scroll-section next" style="background-image:url('images/object-02-01.jpg');">
-    <div class="overlay">
-      <h1>Object 02</h1>
-      <a href="object-02.html" class="btn-open">Open</a>
-    </div>
-  </div>
-
-  <div class="scroll-section next" style="background-image:url('images/some-illustration.jpg');">
-    <div class="overlay">
-      <h1>Illustration 01</h1>
-      <a href="illustration-01.html" class="btn-open">Open</a>
-    </div>
-  </div>
-
-  <script src="js/main.js"></script>
+    
+    <script src="script.js"></script>
 </body>
+</html>
