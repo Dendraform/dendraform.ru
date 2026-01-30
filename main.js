@@ -1,40 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".scroll-section");
-  const arrows = {
-    up: document.querySelector(".arrow.up"),
-    down: document.querySelector(".arrow.down")
-  };
-
+  const arrows = { up: document.querySelector(".arrow.up"), down: document.querySelector(".arrow.down") };
   let current = 0;
   let scrolling = false;
 
-  function activateSection(index) {
+  function updateSections() {
     sections.forEach((sec, i) => {
-      sec.classList.toggle("active", i === index);
+      sec.classList.remove("prev","next","active");
+      if(i < current) sec.classList.add("prev");
+      else if(i > current) sec.classList.add("next");
+      else sec.classList.add("active");
     });
   }
 
   function scrollToSection(index) {
-    if (index < 0) index = 0;
-    if (index >= sections.length) index = sections.length - 1;
+    if(index < 0) index = 0;
+    if(index >= sections.length) index = sections.length-1;
+    if(scrolling || index === current) return;
     scrolling = true;
-    sections[index].scrollIntoView({behavior: "smooth"});
-    activateSection(index);
     current = index;
-    setTimeout(() => scrolling = false, 1000);
+    updateSections();
+    setTimeout(()=> scrolling = false, 800); // соответствует transition
   }
 
-  // Инициализация первой секции
-  activateSection(current);
-
-  // Скролл колесиком
+  // колесо мыши
   window.addEventListener("wheel", e => {
-    if (scrolling) return;
-    if (e.deltaY > 0) scrollToSection(current + 1);
-    else scrollToSection(current - 1);
+    if(e.deltaY > 0) scrollToSection(current+1);
+    else scrollToSection(current-1);
   });
 
-  // Стрелки
-  arrows.down.addEventListener("click", () => scrollToSection(current + 1));
-  arrows.up.addEventListener("click", () => scrollToSection(current - 1));
+  // стрелки
+  arrows.down.addEventListener("click", ()=>scrollToSection(current+1));
+  arrows.up.addEventListener("click", ()=>scrollToSection(current-1));
 });
