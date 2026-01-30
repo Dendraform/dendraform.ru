@@ -21,3 +21,37 @@ body {
   padding: 20px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
+.projects-grid a.project-card {
+  display: block;
+  border: 1px solid #FFBC00;
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #FFBC00;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-grid a.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.projects-grid a.project-card h3 {
+  margin: 12px;
+  font-size: 18px;
+}
+
+.projects-grid a.project-card p {
+  margin: 0 12px 12px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.projects-grid a.project-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(255,188,0,0.3);
+}
+
+
