@@ -1,68 +1,36 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const imageItems = document.querySelectorAll('.image-item');
-    let currentIndex = 0;
-    let isScrolling = false;
-    let scrollTimeout;
-    
-    // Функция для смены изображений
-    function changeImage(direction) {
-        if (isScrolling) return;
-        
-        isScrolling = true;
-        
-        // Убираем активный класс с текущего изображения
-        imageItems[currentIndex].classList.remove('active');
-        imageItems[currentIndex].classList.add('exit');
-        
-        // Определяем индекс следующего изображения
-        if (direction === 'down') {
-            currentIndex = (currentIndex + 1) % imageItems.length;
-        } else {
-            currentIndex = (currentIndex - 1 + imageItems.length) % imageItems.length;
-        }
-        
-        // Показываем следующее изображение
+document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.image-item');
+    let index = 0;
+    let locked = false;
+
+    function switchSlide(direction) {
+        if (locked) return;
+        locked = true;
+
+        const current = items[index];
+        current.classList.remove('active');
+        current.classList.add('exit');
+
+        index =
+            direction === 'down'
+                ? (index + 1) % items.length
+                : (index - 1 + items.length) % items.length;
+
+        const next = items[index];
+        next.classList.add('active');
+
         setTimeout(() => {
-            // Убираем класс exit со всех изображений
-            imageItems.forEach(item => {
-                item.classList.remove('exit');
-            });
-            
-            // Активируем новое изображение
-            imageItems[currentIndex].classList.add('active');
-            
-            // Сбрасываем флаг скроллинга
-            setTimeout(() => {
-                isScrolling = false;
-            }, 300);
-        }, 500);
+            current.classList.remove('exit');
+            locked = false;
+        }, 900);
     }
-    
-    // Обработчик колеса мыши
-    window.addEventListener('wheel', function(e) {
-        // Предотвращаем слишком быструю смену
-        clearTimeout(scrollTimeout);
-        
-        scrollTimeout = setTimeout(() => {
-            if (e.deltaY > 0) {
-                // Скролл вниз
-                changeImage('down');
-            } else {
-                // Скролл вверх
-                changeImage('up');
-            }
-        }, 100);
-    });
-    
-    // Обработчик клавиш для навигации
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowDown') {
-            changeImage('down');
-        } else if (e.key === 'ArrowUp') {
-            changeImage('up');
-        }
-    });
-    
-    // Активируем первое изображение
-    imageItems[0].classList.add('active');
+
+    window.addEventListener(
+        'wheel',
+        (e) => {
+            e.preventDefault();
+            switchSlide(e.deltaY > 0 ? 'down' : 'up');
+        },
+        { passive: false }
+    );
 });
