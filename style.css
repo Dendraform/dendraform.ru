@@ -1,116 +1,93 @@
-/* ==================== RESET ==================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* убираем горизонтальную прокрутку */
-  width: 100%;
-}
-
-body {
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
   background: #16181E;
   color: #FFBC00;
-  font-family: Arial, sans-serif;
-  text-align: center;
 }
 
-/* ==================== HEADER ==================== */
-.header {
-  padding: 40px 20px;
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  z-index: 1000;
 }
 
-/* ==================== PROJECTS GRID ==================== */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  padding: 40px 20px;
-  max-width: 1400px;
-  margin: 0 auto;
+.main-header .logo {
+  font-weight: bold;
+  font-size: 22px;
 }
 
-/* ==================== PROJECT CARD ==================== */
-.project-card {
-  display: block;
-  background: #16181E; /* тёмный фон карточки */
+.main-header .main-nav a {
+  margin-left: 24px;
   color: #FFBC00;
   text-decoration: none;
-  border: 1px solid #FFBC00;
-  overflow: hidden;
-  border-radius: 8px;
-  transform: translateZ(0);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  font-weight: bold;
+}
+
+.scroll-container {
+  scroll-behavior: smooth;
+}
+
+.scroll-section {
   position: relative;
-}
-
-.project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 16px 32px rgba(255, 188, 0, 0.3);
-}
-
-/* ==================== PROJECT IMAGE ==================== */
-.project-image {
-  overflow: hidden;
-}
-
-.project-image img {
   width: 100%;
-  max-width: 100%; /* не даём картинке вылезти */
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-.project-card:hover .project-image img {
-  transform: scale(1.08); /* лёгкое увеличение при наведении */
-}
-
-/* ==================== PROJECT INFO ==================== */
-.project-info {
-  padding: 16px;
+.scroll-section .overlay {
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-bottom: 80px;
+  background: rgba(22,24,30,0.5);
+  padding: 20px 40px;
+  border-radius: 8px;
 }
 
-.project-card:hover .project-info {
-  opacity: 1;
-  transform: translateY(0);
+.scroll-section h1 {
+  font-size: 48px;
+  margin: 0 0 16px;
 }
 
-.project-info h3 {
-  margin: 8px 0 4px;
-  font-size: 18px;
+.btn-open {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #FFBC00;
+  color: #16181E;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
-.project-info p {
-  margin: 0;
-  font-size: 14px;
-  color: #FFBC00;
+.btn-open:hover {
+  background: #e6ac00;
 }
 
-/* ==================== IMAGE & CONTAINER FIX ==================== */
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+/* Стрелки */
+.scroll-arrows {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* ==================== OPTIONAL: SLIDER CONTAINER ==================== */
-.slider-container {
-  max-width: 100%;
-  overflow: hidden; /* чтобы слайды не вылезали */
-}
-
-.slider-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+.arrow {
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
 }
