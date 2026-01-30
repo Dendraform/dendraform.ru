@@ -1,59 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>DEFORM – Projects</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
+  <header class="main-header">
+    <div class="logo">DENDRAFORM</div>
+    <nav class="main-nav">
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
 
-<header class="main-header">
-  <div class="logo">DENDRAFORM</div>
-  <nav class="main-nav">
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
+  <div class="scroll-arrows">
+    <div class="arrow up">↑</div>
+    <div class="arrow down">↓</div>
+  </div>
 
-<div class="scroll-container">
-
-  <section class="scroll-section" style="background-image: url('images/object-01-01.jpg');">
+  <div class="scroll-section active" style="background-image:url('images/object-01-01.jpg');">
     <div class="overlay">
       <h1>Object 01</h1>
       <a href="object-01.html" class="btn-open">Open</a>
     </div>
-  </section>
+  </div>
 
-  <section class="scroll-section" style="background-image: url('images/object-02-01.jpg');">
+  <div class="scroll-section next" style="background-image:url('images/object-02-01.jpg');">
     <div class="overlay">
       <h1>Object 02</h1>
       <a href="object-02.html" class="btn-open">Open</a>
     </div>
-  </section>
+  </div>
 
-  <section class="scroll-section" style="background-image: url('images/some-illustration.jpg');">
+  <div class="scroll-section next" style="background-image:url('images/some-illustration.jpg');">
     <div class="overlay">
       <h1>Illustration 01</h1>
       <a href="illustration-01.html" class="btn-open">Open</a>
     </div>
-  </section>
+  </div>
 
-  <section class="scroll-section" style="background-image: url('images/some-uiux.jpg');">
-    <div class="overlay">
-      <h1>UI/UX 01</h1>
-      <a href="uiux-01.html" class="btn-open">Open</a>
-    </div>
-  </section>
-
-</div>
-
-<!-- Стрелки прокрутки -->
-<div class="scroll-arrows">
-  <div class="arrow up">↑</div>
-  <div class="arrow down">↓</div>
-</div>
-
-<script src="main.js"></script>
+  <script src="js/main.js"></script>
 </body>
-</html>
