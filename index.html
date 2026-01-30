@@ -4,153 +4,212 @@
   <meta charset="UTF-8">
   <title>DEFORM – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
   <style>
-    /* Сброс */
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      overflow: hidden; /* запрет скролла обычного */
+      scroll-behavior: smooth;
       font-family: Arial, sans-serif;
       background: #16181E;
       color: #FFBC00;
+      overflow-x: hidden;
     }
 
-    /* Контейнер слайдов */
-    .slides-container {
-      height: 100%;
+    /* ================= HEADER ================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      z-index: 1000;
+      background: rgba(22,24,30,0.85);
+      backdrop-filter: blur(5px);
     }
 
-    /* Каждый слайд занимает весь экран */
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+    }
+
+    nav a {
+      color: #FFBC00;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    /* ================= SLIDES ================= */
     .slide {
       height: 100vh;
       width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
       background-size: cover;
       background-position: center;
-      transition: transform 0.8s ease;
-      position: absolute;
-      top: 0;
-      left: 0;
     }
 
-    /* Текст поверх слайда */
     .slide-content {
-      background: rgba(22,24,30,0.5);
-      padding: 20px 40px;
       text-align: center;
+      background: rgba(22,24,30,0.4);
+      padding: 20px 40px;
+      border-radius: 4px;
     }
 
     .slide-content h1 {
-      font-size: 48px;
       margin-bottom: 12px;
+      font-size: 36px;
     }
 
     .slide-content p {
-      font-size: 18px;
-      opacity: 0.85;
+      margin-bottom: 16px;
+      font-size: 16px;
     }
 
-    /* Стрелки навигации */
-    .arrow {
-      position: absolute;
+    .slide-content a {
+      display: inline-block;
+      padding: 8px 20px;
+      background: #FFBC00;
+      color: #16181E;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .slide-content a:hover {
+      background: #e6ac00;
+    }
+
+    /* ================= ARROWS ================= */
+    .arrow-container {
+      position: fixed;
+      right: 24px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 900;
+    }
+
+    .arrow {
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,188,0,0.2);
       color: #FFBC00;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
+      border-radius: 50%;
       user-select: none;
-      padding: 8px 12px;
-      background: rgba(22,24,30,0.5);
+      transition: background 0.3s ease;
     }
 
-    .arrow.left { left: 20px; }
-    .arrow.right { right: 20px; }
-
-    @media(max-width:768px) {
-      .slide-content h1 { font-size: 32px; }
-      .slide-content p { font-size: 16px; }
-      .arrow { font-size: 32px; }
+    .arrow:hover {
+      background: rgba(255,188,0,0.5);
     }
+
+    /* ================= MEDIA ================= */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+      .slide-content h1 {
+        font-size: 28px;
+      }
+      .slide-content p {
+        font-size: 14px;
+      }
+    }
+
   </style>
 </head>
 <body>
 
-<div class="slides-container">
-  <div class="slide" style="background-image: url('images/object-01-01.jpg');" data-index="0">
-    <div class="slide-content">
-      <h1>Object 01</h1>
-      <p>Objects</p>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('images/object-02-01.jpg');" data-index="1">
-    <div class="slide-content">
-      <h1>Object 02</h1>
-      <p>Objects</p>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('images/some-illustration.jpg');" data-index="2">
-    <div class="slide-content">
-      <h1>Illustration 01</h1>
-      <p>Illustration</p>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('images/some-uiux.jpg');" data-index="3">
-    <div class="slide-content">
-      <h1>UI/UX 01</h1>
-      <p>UI/UX</p>
-    </div>
-  </div>
+<header>
+  <div class="logo">DEFORM</div>
+  <nav>
+    <a href="projects.html">Projects</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
 
-  <!-- Стрелки -->
-  <div class="arrow left">&#10094;</div>
-  <div class="arrow right">&#10095;</div>
+<!-- Слайды -->
+<div class="slide" style="background-image: url('images/object-01-01.jpg');">
+  <div class="slide-content">
+    <h1>Object 01</h1>
+    <p>Unique handcrafted item</p>
+    <a href="object-01.html">Open</a>
+  </div>
 </div>
 
-<script>
-  const slides = document.querySelectorAll('.slide');
-  const arrowLeft = document.querySelector('.arrow.left');
-  const arrowRight = document.querySelector('.arrow.right');
-  let currentIndex = 0;
+<div class="slide" style="background-image: url('images/object-02-01.jpg');">
+  <div class="slide-content">
+    <h1>Object 02</h1>
+    <p>Another piece of art</p>
+    <a href="object-02.html">Open</a>
+  </div>
+</div>
 
-  function updateSlides() {
-    slides.forEach((slide, index) => {
-      slide.style.transform = `translateY(${(index - currentIndex) * 100}%)`;
-    });
+<div class="slide" style="background-image: url('images/some-illustration.jpg');">
+  <div class="slide-content">
+    <h1>Illustration 01</h1>
+    <p>Hand-drawn illustration</p>
+    <a href="illustration-01.html">Open</a>
+  </div>
+</div>
+
+<!-- Стрелки -->
+<div class="arrow-container">
+  <div class="arrow" id="arrowUp">&#9650;</div>
+  <div class="arrow" id="arrowDown">&#9660;</div>
+</div>
+
+<!-- Скрипт прокрутки -->
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let current = 0;
+
+  function showSlide(index) {
+    if(index < 0) index = 0;
+    if(index >= slides.length) index = slides.length - 1;
+    slides[index].scrollIntoView({behavior:'smooth'});
+    current = index;
   }
 
-  // Навигация стрелками
-  arrowLeft.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlides();
-  });
+  document.getElementById('arrowDown').addEventListener('click', ()=> showSlide(current+1));
+  document.getElementById('arrowUp').addEventListener('click', ()=> showSlide(current-1));
 
-  arrowRight.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlides();
-  });
-
-  // Скролл мышью
-  let scrollTimeout;
+  // Прокрутка колесиком мыши
   window.addEventListener('wheel', e => {
-    if(scrollTimeout) return;
-    if(e.deltaY > 0) currentIndex = (currentIndex + 1) % slides.length;
-    else currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlides();
-    scrollTimeout = setTimeout(() => scrollTimeout = null, 800); // блокируем резкое скролл-прокручивание
+    if(e.deltaY > 0){
+      showSlide(current+1);
+    } else if(e.deltaY < 0){
+      showSlide(current-1);
+    }
   });
-
-  // Инициализация
-  updateSlides();
 </script>
 
 </body>
