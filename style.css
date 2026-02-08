@@ -1,4 +1,3 @@
-/* Общие стили */
 * {
   margin: 0;
   padding: 0;
@@ -40,133 +39,78 @@ html, body {
   font-weight: bold;
 }
 
-/* Стили для страницы Projects */
-.projects-page {
-  padding-top: 80px; /* чтобы topbar не перекрывал */
-  background: #000;
+/* GALLERY */
+.gallery {
+  position: fixed;
+  inset: 0;
 }
 
-/* Сетка проектов */
-.projects-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 0 20px;
+.image-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    transform 0.9s cubic-bezier(0.77, 0, 0.175, 1),
+    opacity 0.5s ease;
 }
 
-/* Карточка проекта */
-.project-card {
-  display: block;
-  text-decoration: none;
-  color: #fff;
-  overflow: hidden;
-  background: #111;
-  border: 1px solid #222;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+.image-item.active {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 2;
 }
 
-.project-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+.image-item.exit {
+  opacity: 0;
+  transform: translateY(-100%);
+  z-index: 1;
 }
 
-/* Обложка проекта */
-.project-image {
-  width: 100%;
-  height: 0;
-  padding-bottom: 66%; /* соотношение 3:2 */
-  overflow: hidden;
-}
-
-.project-image img {
+.image-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* Текст проекта */
-.project-meta {
-  padding: 12px;
-  text-align: center;
+/* PROJECT INFO */
+.project-info {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
 }
 
-.project-meta h2 {
-  font-size: 1.2rem;
-  margin-bottom: 4px;
+.project-info h3 {
+  font-size: 24px;
+  margin-bottom: 6px;
 }
 
-.project-meta span {
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-/* Стили для страницы Projects */
-.projects-page {
-  padding-top: 80px; /* чтобы topbar не перекрывал */
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-}
-
-/* Сетка проектов */
-.projects-page .projects-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-/* Карточка проекта */
-.projects-page .project-card {
-  display: block;
-  text-decoration: none;
-  color: #fff;
-  overflow: hidden;
-  background: #111;
-  border: 1px solid #222;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-.projects-page .project-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-}
-
-/* Обложка проекта */
-.projects-page .project-image {
-  width: 100%;
-  height: 0;
-  padding-bottom: 66%; /* соотношение 3:2 */
-  overflow: hidden;
-}
-
-.projects-page .project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Текст проекта */
-.projects-page .project-meta {
-  padding: 12px;
-  text-align: center;
-}
-
-.projects-page .project-meta h2 {
-  font-size: 1.2rem;
-  margin-bottom: 4px;
-}
-
-.projects-page .project-meta span {
-  font-size: 0.9rem;
+.project-info p {
   opacity: 0.7;
 }
 
+/* ARROWS */
+.scroll-arrows {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
 
+.arrow {
+  font-size: 22px;
+  margin: 12px 0;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.arrow:hover {
+  opacity: 1;
+}
+
+/* Виртуальный скролл для колеса */
+.scroll-space {
+  height: 400vh;
+}
