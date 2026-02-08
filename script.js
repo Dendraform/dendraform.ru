@@ -6,17 +6,13 @@ function show(next) {
   if (locked || next === index) return;
   locked = true;
 
-  // Убираем активный класс с текущего изображения
   items[index].classList.remove('active');
   items[index].classList.add('exit');
 
-  // Циклический переход
   index = (next + items.length) % items.length;
 
-  // Активируем новое изображение
   items[index].classList.add('active');
 
-  // Сброс классов exit после анимации
   setTimeout(() => {
     items.forEach(i => i.classList.remove('exit'));
     locked = false;
@@ -27,7 +23,7 @@ function show(next) {
 document.querySelector('.arrow.down').onclick = () => show(index + 1);
 document.querySelector('.arrow.up').onclick = () => show(index - 1);
 
-// Скролл мышью
+// Скролл колесом
 let wheelLock = false;
 window.addEventListener(
   'wheel',
@@ -35,12 +31,12 @@ window.addEventListener(
     e.preventDefault();
     if (wheelLock) return;
     wheelLock = true;
-
-    if (e.deltaY > 0) show(index + 1);
-    else show(index - 1);
-
-    setTimeout(() => (wheelLock = false), 1000);
+    if (e.deltaY > 0) {
+      show(index + 1);
+    } else {
+      show(index - 1);
+    }
+    setTimeout(() => { wheelLock = false; }, 1000);
   },
   { passive: false }
 );
-
