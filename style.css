@@ -222,6 +222,70 @@ body.projects-page {
   );
   pointer-events: none;
 }
+.projects-page {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding-top: 80px; /* чтобы topbar не перекрывал */
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 32px rgba(255, 255, 255, 0.2);
+}
+
+.project-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 66%; /* соотношение 3:2 */
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-meta {
+  padding: 12px;
+}
+
+.project-meta h2 {
+  margin: 8px 0 4px;
+  font-size: 18px;
+}
+
+.project-meta span {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+
 
 
 
