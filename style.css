@@ -321,7 +321,7 @@ html, body {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 60px;
-  max-width: 1600px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 40px;
 }
@@ -363,3 +363,4 @@ html, body {
   }
 }
 https://dendraform.github.io/deform-site-lab/project-object-01.html
+
