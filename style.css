@@ -383,6 +383,20 @@ body { transform: none !important; }
   opacity: 1 !important;
   background-image: initial !important;
 }
+/* Lightbox — принудительно показать крестик и стрелки */
+.lb-close, .lb-prev, .lb-next {
+  display: block !important;
+  opacity: 1 !important;
+  z-index: 9999 !important;
+  background: rgba(0,0,0,0.5) !important;
+}
+
+.lb-prev:before, .lb-next:before, .lb-close:before {
+  color: #fff !important;
+  font-size: 36px !important;
+}
+
+
 
 
 
