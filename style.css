@@ -389,7 +389,7 @@ html, body {
 
 /* Обертка через grid-span */
 .project-gallery img {
-  grid-column: span 4;
+  grid-column: span 6;
 }
 
 /* hover-zoom без ломки сетки */
@@ -405,10 +405,11 @@ html, body {
 }
 
 @media (max-width: 600px) {
-  .project-gallery img {
-    grid-column: span 12;
-  }
+  .project-gallery img:nth-child(3n) {
+   grid-column: span 12;
 }
+
+
 
 
 
