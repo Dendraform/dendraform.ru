@@ -424,9 +424,9 @@ body { transform: none !important; }
 
 
 
-/* ===== Modal gallery (плавная анимация) ===== */
+/* ===== Modal gallery (stable animated version) ===== */
 .modal {
-  display: flex; /* элемент всегда в DOM */
+  display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -435,7 +435,7 @@ body { transform: none !important; }
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .modal.show {
@@ -459,13 +459,14 @@ body { transform: none !important; }
 .modal-close,
 .modal-prev,
 .modal-next {
-  position: absolute;
+  position: fixed;
   color: #fff;
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
   opacity: 0;
-  transition: opacity 0.35s ease 0.15s; /* небольшая задержка */
+  transition: opacity 0.35s ease 0.15s;
+  z-index: 100001;
 }
 
 .modal.show .modal-close,
@@ -477,6 +478,8 @@ body { transform: none !important; }
 .modal-close { top: 20px; right: 30px; }
 .modal-prev { left: 30px; top: 50%; transform: translateY(-50%); }
 .modal-next { right: 30px; top: 50%; transform: translateY(-50%); }
+
+
 
 
 
