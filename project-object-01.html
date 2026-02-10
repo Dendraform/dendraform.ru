@@ -114,6 +114,52 @@
       line-height: 1.5;
     }
   </style>
+  <style>
+/* ===== Modal slide animation ===== */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.modal-img {
+  position: absolute;
+  max-width: 90%;
+  max-height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(0);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
+}
+
+/* Состояния для анимации */
+.modal-img.enter-left  { transform: translate(-50%, -50%) translateX(-100%); opacity: 0; }
+.modal-img.enter-right { transform: translate(-50%, -50%) translateX(100%);  opacity: 0; }
+.modal-img.exit-left   { transform: translate(-50%, -50%) translateX(-100%); opacity: 0; }
+.modal-img.exit-right  { transform: translate(-50%, -50%) translateX(100%);  opacity: 0; }
+
+/* Кнопки */
+.modal-close,
+.modal-prev,
+.modal-next {
+  position: absolute;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+.modal-close { top: 20px; right: 30px; }
+.modal-prev  { left: 30px; top: 50%; transform: translateY(-50%); }
+.modal-next  { right: 30px; top: 50%; transform: translateY(-50%); }
+</style>
+
 
 </head>
 <body class="project-single">
@@ -189,44 +235,50 @@ function openModal(idx) {
   current = idx;
   modalImg.src = images[current].src;
   modal.style.display = 'flex';
+  // убираем все аним-классы на случай
+  modalImg.classList.remove('enter-left','enter-right','exit-left','exit-right');
 }
 
-// функция слайд-анимации
+// анимация слайд
 function slideTo(idx) {
   const newSrc = images[idx].src;
-  const direction = idx > current || (current === images.length - 1 && idx === 0) ? 'right' : 'left';
+  // определяем направление
+  const direction = idx > current ? 'right' : 'left';
 
+  // добавляем класс выхода
   modalImg.classList.add(direction === 'right' ? 'exit-left' : 'exit-right');
 
   modalImg.addEventListener('transitionend', function handler() {
     modalImg.removeEventListener('transitionend', handler);
 
+    // смена картинки
     modalImg.src = newSrc;
-    modalImg.classList.remove('exit-left', 'exit-right');
+
+    // подготовка класса входа
+    modalImg.classList.remove('exit-left','exit-right');
     modalImg.classList.add(direction === 'right' ? 'enter-right' : 'enter-left');
 
+    // через RAF удаляем класс входа, чтобы сработала анимация
     requestAnimationFrame(() => {
-      modalImg.classList.remove('enter-left', 'enter-right');
+      modalImg.classList.remove('enter-left','enter-right');
     });
 
     current = idx;
   });
 }
 
-// галерея
+// клики по галерее
 images.forEach((img, idx) => {
-  img.addEventListener('click', (e) => {
-    e.preventDefault();
+  img.addEventListener('click', () => {
     openModal(idx);
   });
 });
 
-// кнопки
+// навигация
 document.querySelector('.modal-prev').addEventListener('click', () => {
   const idx = (current - 1 + images.length) % images.length;
   slideTo(idx);
 });
-
 document.querySelector('.modal-next').addEventListener('click', () => {
   const idx = (current + 1) % images.length;
   slideTo(idx);
@@ -237,6 +289,7 @@ document.querySelector('.modal-close').addEventListener('click', () => {
   modal.style.display = 'none';
 });
 </script>
+
  
 
 </body>
