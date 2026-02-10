@@ -456,21 +456,21 @@ body { transform: none !important; }
 
 /* ===== Modal gallery (новый вариант) ===== */
 .modal {
-  display: flex;                 /* элемент всегда есть, не display:none */
+  display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.85);
   opacity: 0;
-  pointer-events: none;          /* чтобы не мешал кликам, когда скрыт */
+  pointer-events: none;
   transition: opacity 0.35s ease;
   z-index: 9999;
 }
 
 .modal.show {
   opacity: 1;
-  pointer-events: auto;          /* теперь клики активны */
+  pointer-events: auto;
 }
 
 .modal-img {
@@ -488,7 +488,7 @@ body { transform: none !important; }
 .modal-next,
 .modal-close {
   opacity: 0;
-  transition: opacity 0.35s ease 0.15s; /* появление с небольшой задержкой */
+  transition: opacity 0.35s ease 0.15s;
 }
 
 .modal.show .modal-prev,
@@ -496,6 +496,8 @@ body { transform: none !important; }
 .modal.show .modal-close {
   opacity: 1;
 }
+
+
 
 
 
