@@ -454,6 +454,46 @@ body { transform: none !important; }
 .modal-prev { left: 30px; top: 50%; transform: translateY(-50%); }
 .modal-next { right: 30px; top: 50%; transform: translateY(-50%); }
 
+/* ===== Modal animations ===== */
+
+.modal {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-img {
+  transform: scale(0.96);
+  opacity: 0;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.modal.show .modal-img {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-prev,
+.modal-next,
+.modal-close {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show .modal-prev,
+.modal.show .modal-next,
+.modal.show .modal-close {
+  opacity: 1;
+}
+
+
+
 
 
 
