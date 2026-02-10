@@ -457,7 +457,7 @@ body { transform: none !important; }
 /* ===== Modal animations ===== */
 
 .modal {
-  display: flex;       /* элемент всегда есть */
+  display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -499,6 +499,7 @@ body { transform: none !important; }
 .modal.show .modal-close {
   opacity: 1;
 }
+
 
 
 
