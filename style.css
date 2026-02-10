@@ -457,7 +457,7 @@ body { transform: none !important; }
 /* ===== Modal animations ===== */
 
 .modal {
-  display: flex;
+  display: flex;                 /* элемент всегда есть */
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -477,9 +477,7 @@ body { transform: none !important; }
 .modal-img {
   transform: scale(0.96);
   opacity: 0;
-  transition:
-    transform 0.4s ease,
-    opacity 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .modal.show .modal-img {
@@ -491,7 +489,7 @@ body { transform: none !important; }
 .modal-next,
 .modal-close {
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease 0.15s; /* появляется с небольшой задержкой */
 }
 
 .modal.show .modal-prev,
@@ -499,6 +497,8 @@ body { transform: none !important; }
 .modal.show .modal-close {
   opacity: 1;
 }
+
+
 
 
 
