@@ -232,16 +232,15 @@ images.forEach((link, idx) => {
     current = idx;
     modalImg.src = link.href;
 
-    modal.style.display = 'flex';             // показываем сразу
+    modal.classList.remove('show');
     requestAnimationFrame(() => {
-      modal.classList.add('show');             // запускаем transition
+      modal.classList.add('show');
     });
   });
 });
 
 document.querySelector('.modal-close').addEventListener('click', () => {
-  modal.classList.remove('show');             // плавное скрытие
-  setTimeout(() => modal.style.display = 'none', 400); // после завершения анимации
+  modal.classList.remove('show');
 });
 
 document.querySelector('.modal-prev').addEventListener('click', () => {
@@ -250,9 +249,11 @@ document.querySelector('.modal-prev').addEventListener('click', () => {
 });
 
 document.querySelector('.modal-next').addEventListener('click', () => {
-  current = (current + 1) % images.length;
+  current = (current + images.length + 1) % images.length;
   modalImg.src = images[current].href;
 });
+</script>
+
 </script>
 
 
