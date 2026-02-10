@@ -193,14 +193,14 @@ images.forEach((link, idx) => {
     e.preventDefault();
     current = idx;
     modalImg.src = link.href;
-    modal.style.display = 'flex';
-    requestAnimationFrame(() => modal.classList.add('show'));
+
+    // показываем модалку
+    modal.classList.add('show');
   });
 });
 
 document.querySelector('.modal-close').addEventListener('click', () => {
   modal.classList.remove('show');
-  setTimeout(() => modal.style.display = 'none', 350);
 });
 
 document.querySelector('.modal-prev').addEventListener('click', () => {
