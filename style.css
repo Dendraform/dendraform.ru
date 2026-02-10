@@ -426,26 +426,26 @@ body { transform: none !important; }
 
 /* ===== Modal gallery (новый вариант) ===== */
 .modal {
-  display: flex;                 /* элемент всегда есть */
+  display: flex;                /* элемент всегда в потоке */
   justify-content: center;
   align-items: center;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.85);
   opacity: 0;
-  pointer-events: none;          /* чтобы не мешал кликам, когда скрыт */
+  pointer-events: none;
+  transition: opacity 0.35s ease;
   z-index: 9999;
-  transform: scale(1.02);        /* чуть больше для эффекта "приплывания" */
-  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .modal.show {
   opacity: 1;
   pointer-events: auto;
-  transform: scale(1);
 }
 
 .modal-img {
+  max-width: 90%;
+  max-height: 90%;
   transform: scale(0.96);
   opacity: 0;
   transition: transform 0.4s ease, opacity 0.4s ease;
@@ -456,19 +456,29 @@ body { transform: none !important; }
   opacity: 1;
 }
 
+.modal-close,
 .modal-prev,
-.modal-next,
-.modal-close {
+.modal-next {
+  position: absolute;          /* было fixed — теперь относительно .modal */
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
   opacity: 0;
-  transition: opacity 0.35s ease 0.15s; /* небольшая задержка */
+  transition: opacity 0.35s ease 0.15s;
+  z-index: 10;
 }
 
+.modal.show .modal-close,
 .modal.show .modal-prev,
-.modal.show .modal-next,
-.modal.show .modal-close {
+.modal.show .modal-next {
   opacity: 1;
 }
 
+/* Правильное расположение */
+.modal-close { top: 20px; right: 30px; }
+.modal-prev { left: 30px; top: 50%; transform: translateY(-50%); }
+.modal-next { right: 30px; top: 50%; transform: translateY(-50%); }
 
 
 
