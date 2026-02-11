@@ -240,27 +240,42 @@ document.addEventListener("DOMContentLoaded", function () {
     modalImg.classList.remove('enter-left','enter-right','exit-left','exit-right');
   }
 
-  function slideTo(idx) {
-    const newSrc = images[idx].src;
-    const direction = idx > current ? 'right' : 'left';
+function slideTo(idx) {
+  if (idx === current) return;
 
-    modalImg.classList.add(direction === 'right' ? 'exit-left' : 'exit-right');
+  const newSrc = images[idx].src;
+  const direction = idx > current ? 'right' : 'left';
 
-    modalImg.addEventListener('transitionend', function handler() {
-      modalImg.removeEventListener('transitionend', handler);
+  // СБРОС классов
+  modalImg.classList.remove(
+    'enter-left','enter-right',
+    'exit-left','exit-right'
+  );
 
-      modalImg.src = newSrc;
+  // Запускаем выход
+  modalImg.classList.add(
+    direction === 'right' ? 'exit-left' : 'exit-right'
+  );
 
-      modalImg.classList.remove('exit-left','exit-right');
-      modalImg.classList.add(direction === 'right' ? 'enter-right' : 'enter-left');
+  modalImg.addEventListener('transitionend', function handler(e) {
+    if (e.propertyName !== 'transform') return;
+    modalImg.removeEventListener('transitionend', handler);
 
-      requestAnimationFrame(() => {
-        modalImg.classList.remove('enter-left','enter-right');
-      });
+    modalImg.src = newSrc;
 
-      current = idx;
+    modalImg.classList.remove('exit-left','exit-right');
+    modalImg.classList.add(
+      direction === 'right' ? 'enter-right' : 'enter-left'
+    );
+
+    requestAnimationFrame(() => {
+      modalImg.classList.remove('enter-left','enter-right');
     });
-  }
+
+    current = idx;
+  });
+}
+
 
   images.forEach((img, idx) => {
     img.addEventListener('click', () => {
