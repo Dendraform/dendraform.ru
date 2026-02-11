@@ -466,5 +466,16 @@ body { transform: none !important; }
 .modal-next { right: 30px; top: 50%; transform: translateY(-50%); }
 
 
+/* =========================
+   Mobile scroll arrows — bigger
+========================= */
+@media (max-width: 800px) {
+  .scroll-arrows .arrow {
+    font-size: 36px;   /* крупнее для пальцев */
+    margin: 20px 0;    /* больше пространства между стрелками */
+    padding: 8px;      /* зона клика больше */
+  }
+}
+
 
 
