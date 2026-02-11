@@ -219,22 +219,45 @@ html, body {
 }
 
 /* =========================
-   Адаптив для мобильных
+   Адаптив для мобильных (телефон)
 ========================= */
 @media (max-width: 800px) {
+  /* Сетка плиток */
   .projects-page .projects-list {
-    grid-template-columns: 1fr; /* одна колонка */
-    gap: 16px;
-    padding: 0 16px;
+    grid-template-columns: 1fr;  /* одна колонка */
+    gap: 12px;                   /* маленький gap */
+    padding: 0 12px;             /* минимальный отступ слева/справа */
     margin: 0;
     width: 100%;
   }
 
+  /* Карточки занимают всю ширину */
   .projects-page .project-card,
   .projects-page .project-card.large,
   .projects-page .project-card.small {
     grid-column: span 12;
     width: 100%;
+  }
+
+  /* Изображение внутри карточки — высота под ширину экрана */
+  .projects-page .project-image {
+    padding-bottom: 56%; /* чуть ниже, чтобы было более компактно */
+  }
+
+  /* Текст внутри карточки */
+  .projects-page .project-meta {
+    left: 12px;       /* ближе к краю */
+    bottom: 12px;
+    right: 12px;      /* чтобы текст не выходил за пределы */
+    text-align: left; /* выравниваем текст слева для мобильного */
+  }
+
+  .projects-page .project-meta h2 {
+    font-size: 1.2rem;
+  }
+
+  .projects-page .project-meta span {
+    font-size: 0.85rem;
   }
 }
 
@@ -568,6 +591,7 @@ body { transform: none !important; }
   transform: scale(1.03);
   z-index: 2;
 }
+
 
 
 
