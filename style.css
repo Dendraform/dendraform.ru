@@ -657,31 +657,37 @@ body { transform: none !important; }
 
 }
 
+
+
 /* =========================================
-   MOBILE FIX — галереи проектов
+   MOBILE — Project Single (галерея)
 ========================================= */
 @media (max-width: 800px) {
 
-  /* Работает ТОЛЬКО на страницах проектов */
-  body.project-page {
-    padding-left: 0;
-    padding-right: 0;
+  body.project-single .project-gallery {
+    display: grid;
+    grid-template-columns: 1fr; /* одна колонка */
+    gap: 12px;
+    padding: 12px; /* минимальные края */
   }
 
-  body.project-page .project-gallery {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 12px; /* минимальные края */
-    box-sizing: border-box;
+  body.project-single .project-item {
+    grid-column: span 1;
   }
 
-  body.project-page .project-gallery img {
+  body.project-single .project-item img {
     width: 100%;
     height: auto;
     display: block;
   }
 
+  body.project-single .project-description {
+    padding: 0 16px;
+  }
+
 }
+
+
 
 
 
