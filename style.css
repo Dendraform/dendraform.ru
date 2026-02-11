@@ -421,66 +421,6 @@ body { transform: none !important; }
   color: #fff
 
 }
-
-
-
-/* ===== Modal gallery (stable animated version) ===== */
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s ease;
-  z-index: 99999;
-}
-
-.modal.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-img {
-  max-width: 90%;
-  max-height: 90%;
-  transform: scale(0.96);
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.modal.show .modal-img {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.modal-close,
-.modal-prev,
-.modal-next {
-  position: fixed;
-  color: #fff;
-  font-size: 2rem;
-  cursor: pointer;
-  user-select: none;
-  opacity: 0;
-  transition: opacity 0.35s ease 0.15s;
-  z-index: 100001;
-}
-
-.modal.show .modal-close,
-.modal.show .modal-prev,
-.modal.show .modal-next {
-  opacity: 1;
-}
-
-.modal-close { top: 20px; right: 30px; }
-.modal-prev { left: 30px; top: 50%; transform: translateY(-50%); }
-.modal-next { right: 30px; top: 50%; transform: translateY(-50%); }
-
-
-<style>
 /* ===== Modal slide animation ===== */
 .modal {
   display: flex;
@@ -538,5 +478,6 @@ body { transform: none !important; }
 .modal-close { top: 20px; right: 30px; }
 .modal-prev { left: 30px; top: 50%; transform: translateY(-50%); }
 .modal-next { right: 30px; top: 50%; transform: translateY(-50%); }
-</style>
+
+
 
