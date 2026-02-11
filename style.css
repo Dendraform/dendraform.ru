@@ -657,6 +657,40 @@ body { transform: none !important; }
 
 }
 
+/* =========================================
+   MOBILE FIX — галереи проектов на всю ширину
+========================================= */
+@media (max-width: 800px) {
+
+  /* Убираем ограничения контейнера */
+  .project-page,
+  .project-gallery,
+  .gallery,
+  .container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Если есть внутренний блок-обёртка */
+  .project-content,
+  .project-wrapper {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Изображения на всю ширину */
+  .project-gallery img,
+  .gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+}
+
+
+
 
 
 
