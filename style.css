@@ -688,49 +688,75 @@ body { transform: none !important; }
 }
 
 /* =========================
-   About Page Styles
+   About Page — Designer Layout
 ========================= */
 .about-page {
-  padding-top: 100px;  /* чтобы текст не заезжал под фиксированный topbar */
-  max-width: 1000px;
+  padding-top: 100px;
+  max-width: 1100px;
   margin: 0 auto;
   padding-left: 40px;
   padding-right: 40px;
   color: #fff;
   line-height: 1.7;
+  font-family: 'Roboto', sans-serif;
 }
 
 .about-header h1 {
-  font-size: 2.8rem;
-  margin-bottom: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin: 60px 0;
+}
+
+.about-section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.about-section .about-text {
+  flex: 1;
+}
+
+.about-section .about-text p {
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+}
+
+.about-section .about-photo {
+  flex: 1;
   text-align: center;
 }
 
-.about-text p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.about-photo {
-  margin: 40px 0;
-  text-align: center;
-}
-
-.about-photo img {
+.about-section .about-photo img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(255,255,255,0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-section .about-photo img:hover {
+  transform: scale(1.02);
 }
 
 .about-contact {
-  margin-top: 40px;
+  margin-top: 60px;
   text-align: center;
+  font-size: 1.15rem;
 }
 
 .about-contact a {
   color: #fff;
   text-decoration: underline;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
@@ -738,7 +764,7 @@ body { transform: none !important; }
   color: #aaa;
 }
 
-/* Адаптив для мобильных */
+/* Мобильная адаптация */
 @media (max-width: 800px) {
   .about-page {
     padding: 20px;
@@ -746,30 +772,20 @@ body { transform: none !important; }
 
   .about-header h1 {
     font-size: 2rem;
+    margin-bottom: 30px;
   }
 
-  .about-text p {
+  .about-section {
+    flex-direction: column;
+    gap: 30px;
+    margin: 40px 0;
+  }
+
+  .about-section .about-text p {
     font-size: 1rem;
   }
 
-  .about-photo {
-    margin: 30px 0;
+  .about-section .about-photo img {
+    border-radius: 10px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
