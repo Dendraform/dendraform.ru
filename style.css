@@ -799,3 +799,56 @@ body { transform: none !important; }
     border-radius: 10px;
   }
 }
+/* Контактная форма */
+.contact-form {
+  max-width: 600px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form label {
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  background: #111;
+  color: #fff;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 800px) {
+  .contact-form {
+    gap: 12px;
+  }
+}
+
+
