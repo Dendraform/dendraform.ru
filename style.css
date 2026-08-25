@@ -851,15 +851,3 @@ body { transform: none !important; }
   }
 }
 
-
-/* Колония: вертикальная обложка без увеличения на десктопе */
-@media (min-width: 801px) {
-  .image-item.colony-cover {
-    background: #000;
-  }
-
-  .image-item.colony-cover img {
-    object-fit: contain;
-    object-position: center center;
-  }
-}
