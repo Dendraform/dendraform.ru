@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dendraformium — Dendraform</title>
+  <meta name="description" content="Dendraformium — визуальная лаборатория Dendraform: арт, фотография, эскизы, природные фактуры и рабочий процесс.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--gap:8px;--top:64px}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#050505;color:#f4f4f1;font-family:Montserrat,Arial,sans-serif}
+    body{min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    .topbar{position:sticky;top:0;z-index:20;height:var(--top);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(5,5,5,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12)}
+    .logo{font-size:15px;font-weight:400;letter-spacing:.18em;text-transform:uppercase}
+    .menu{display:flex;gap:24px;font-size:11px;font-weight:300;letter-spacing:.1em;text-transform:uppercase}
+    .menu a{opacity:.72;transition:opacity .25s}
+    .menu a:hover,.menu a:focus-visible{opacity:1}
+    .intro{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:30px 24px 26px}
+    h1{margin:0;font-size:clamp(19px,2.1vw,32px);font-weight:300;letter-spacing:.08em}
+    .intro p{max-width:470px;margin:0;color:#999;font-size:11px;font-weight:300;line-height:1.6;letter-spacing:.04em;text-align:right}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);padding:0 var(--gap) var(--gap)}
+    .tile{display:block;aspect-ratio:1;margin:0;padding:0;overflow:hidden;border:0;background:#111;cursor:zoom-in}
+    .tile img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.75,.25,1),filter .35s}
+    .tile:hover img{transform:scale(1.025);filter:brightness(.88)}
+    .lightbox{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.96)}
+    .lightbox.open{display:flex}
+    .lightbox img{display:block;max-width:calc(100vw - 96px);max-height:calc(100vh - 72px);width:auto;height:auto;object-fit:contain}
+    .lightbox button{position:absolute;border:0;background:transparent;color:#fff;font:300 30px/1 Montserrat,Arial,sans-serif;cursor:pointer;opacity:.72}
+    .lightbox button:hover,.lightbox button:focus-visible{opacity:1}
+    .close{top:20px;right:24px;font-size:26px!important}
+    .prev{left:22px;top:50%;transform:translateY(-50%)}
+    .next{right:22px;top:50%;transform:translateY(-50%)}
+    @media(max-width:950px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.intro{align-items:flex-start}.intro p{max-width:360px}}
+    @media(max-width:650px){
+      :root{--gap:6px;--top:58px}
+      .topbar{padding:0 14px}.logo{font-size:12px}.menu{gap:13px;font-size:9px}
+      .intro{display:block;padding:22px 14px 20px}.intro p{margin-top:9px;max-width:310px;text-align:left;font-size:10px}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .lightbox img{max-width:100vw;max-height:calc(100vh - 64px)}
+      .prev,.next{top:auto;bottom:18px;transform:none}.prev{left:28px}.next{right:28px}
+    }
+    @media(prefers-reduced-motion:reduce){.tile img{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html">Dendraform</a>
+    <nav class="menu" aria-label="Основная навигация">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <h1>Dendraformium</h1>
+      <p>Art · photography · sketches · process</p>
+    </section>
+    <section class="grid" id="grid" aria-label="Визуальный архив Dendraformium">
+      <button class="tile" type="button" data-index="0" aria-label="Открыть изображение 1"><img src="images/dendraformium-001.jpg" alt="Абстрактная графическая работа" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="1" aria-label="Открыть изображение 2"><img src="images/dendraformium-002.jpg" alt="Геометрическая бумажная форма" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="2" aria-label="Открыть изображение 3"><img src="images/dendraformium-003.jpg" alt="Световой объект из ветвей" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="3" aria-label="Открыть изображение 4"><img src="images/dendraformium-004.jpg" alt="Процесс создания объекта с деревянными кубами" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="4" aria-label="Открыть изображение 5"><img src="images/dendraformium-005.jpg" alt="Работа с корнями и кубическими элементами" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="5" aria-label="Открыть изображение 6"><img src="images/dendraformium-006.jpg" alt="Объект в процессе сборки" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="6" aria-label="Открыть изображение 7"><img src="images/dendraformium-007.jpg" alt="Грибы и мох на древесной поверхности" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="7" aria-label="Открыть изображение 8"><img src="images/dendraformium-008.jpg" alt="Фактура древесной коры" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="8" aria-label="Открыть изображение 9"><img src="images/dendraformium-009.jpg" alt="Корни дерева на камне" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="9" aria-label="Открыть изображение 10"><img src="images/dendraformium-010.jpg" alt="Сборка деревянного каркаса" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="10" aria-label="Открыть изображение 11"><img src="images/dendraformium-011.jpg" alt="Объект в мастерской" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="11" aria-label="Открыть изображение 12"><img src="images/dendraformium-012.jpg" alt="Эскиз дома на скале" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="12" aria-label="Открыть изображение 13"><img src="images/dendraformium-013.jpg" alt="Эскиз объекта с корнями и геометрическими формами" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="13" aria-label="Открыть изображение 14"><img src="images/dendraformium-014.jpg" alt="Эксперимент с обожжённым деревом" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="14" aria-label="Открыть изображение 15"><img src="images/dendraformium-015.jpg" alt="Фактура обработанных деревянных пластин" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="15" aria-label="Открыть изображение 16"><img src="images/dendraformium-016.jpg" alt="Фактура старой древесины" loading="lazy" decoding="async"></button>
+      <button class="tile" type="button" data-index="16" aria-label="Открыть изображение 17"><img src="images/dendraformium-017.jpg" alt="Обугленная древесная поверхность" loading="lazy" decoding="async"></button>
+    </section>
+  </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+    <button class="close" type="button" aria-label="Закрыть">×</button>
+    <button class="prev" type="button" aria-label="Предыдущее изображение">←</button>
+    <img src="" alt="">
+    <button class="next" type="button" aria-label="Следующее изображение">→</button>
+  </div>
+  <script>
+    (() => {
+      const grid=document.getElementById('grid');
+      const items=[...grid.children];
+      for(let i=items.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[items[i],items[j]]=[items[j],items[i]]}
+      items.forEach(item=>grid.appendChild(item));
+      const ordered=[...grid.children], box=document.getElementById('lightbox'), full=box.querySelector('img');
+      let current=0;
+      const show=i=>{current=(i+ordered.length)%ordered.length;const img=ordered[current].querySelector('img');full.src=img.src;full.alt=img.alt;box.classList.add('open');document.body.style.overflow='hidden'};
+      const close=()=>{box.classList.remove('open');document.body.style.overflow='';full.src=''};
+      ordered.forEach((item,i)=>item.addEventListener('click',()=>show(i)));
+      box.querySelector('.close').addEventListener('click',close);
+      box.querySelector('.prev').addEventListener('click',()=>show(current-1));
+      box.querySelector('.next').addEventListener('click',()=>show(current+1));
+      box.addEventListener('click',e=>{if(e.target===box)close()});
+      document.addEventListener('keydown',e=>{if(!box.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(current-1);if(e.key==='ArrowRight')show(current+1)});
+    })();
+  </script>
+</body>
+</html>
