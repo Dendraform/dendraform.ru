@@ -12,7 +12,8 @@
       height: auto;
       min-height: 100%;
       overflow-x: hidden;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 300;
       background: #000;
       color: #fff;
       margin: 0;
@@ -35,8 +36,7 @@
       z-index: 10;
     }
 
-    .logo { font-weight: bold; letter-spacing: 1px; }
-    .menu a { margin-left: 24px; text-decoration: none; color: #fff; font-weight: bold; }
+    .menu a { margin-left: 24px; text-decoration: none; color: #fff; font-weight: 300; }
 
     /* ===== Сетка проектов ===== */
     .projects-list {
@@ -55,6 +55,7 @@
       overflow: hidden;
       color: #fff;
       text-decoration: none;
+      text-align: left;
       background: #111;
       border: 1px solid #222;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -108,6 +109,8 @@
       z-index: 2;
     }
 
+    .projects-page .project-meta { text-align: left; }
+
     .project-meta h2 { font-size: 1.6rem; margin-bottom: 6px; }
     .project-meta span { font-size: 0.9rem; opacity: 0.7; }
 
@@ -148,7 +151,7 @@
 <body class="projects-page">
 
 <header class="topbar">
-  <div class="logo">dendraform</div>
+  <div class="logo">DENDRAFORM</div>
   <nav class="menu">
     <a href="dendraformium.html">Dendraformium</a>
     <a href="index.html">Home</a>
