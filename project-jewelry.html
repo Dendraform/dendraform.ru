@@ -11,7 +11,7 @@
     .project-layout { padding-top: 80px; display: flex; flex-direction: column; align-items: stretch; max-width: 1800px; margin: 0 auto; }
     .project-gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; width: 100%; padding: 40px; box-sizing: border-box; }
     .project-item { position: relative; overflow: hidden; grid-column: span 4; cursor: pointer; }
-    .project-item img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; transition: transform 0.8s ease; }
+    .project-item img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; transition: transform 0.8s ease; }
     .project-item:hover img { transform: scale(1.08); }
     .item-name { display:block; padding-top:10px; color:#ffbc00; font-size:.82rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
     @media (max-width:1000px){ .project-item{grid-column:span 6;} }
