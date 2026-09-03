@@ -2,20 +2,22 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Jewelry — Dendraform</title>
+  <title>Аксессуары — Dendraform</title>
+  <meta name="description" content="Авторские амулеты Dendraform из дерева и металла.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 
   <style>
-    .project-layout { padding-top: 80px; display: flex; flex-direction: column; align-items: center; }
+    .project-layout { padding-top: 80px; display: flex; flex-direction: column; align-items: stretch; max-width: 1800px; margin: 0 auto; }
     .project-gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; width: 100%; padding: 40px; box-sizing: border-box; }
-    .project-item { position: relative; overflow: hidden; grid-column: span 4; }
-    .project-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+    .project-item { position: relative; overflow: hidden; grid-column: span 4; cursor: pointer; }
+    .project-item img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; transition: transform 0.8s ease; }
     .project-item:hover img { transform: scale(1.08); }
+    .item-name { display:block; padding-top:10px; color:#ffbc00; font-size:.82rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
     @media (max-width:1000px){ .project-item{grid-column:span 6;} }
     @media (max-width:600px){ .project-item{grid-column:span 12;} }
-    .project-description { max-width:1200px; margin:20px auto 60px; padding:0 20px; color:#fff; }
-    .project-description h1 { font-size:2rem; margin-bottom:8px; }
+    .project-description { max-width:1200px; margin:20px 0 60px; padding:0 40px; color:#fff; }
+    .project-description h1 { color:#ffbc00; font-size:2rem; margin-bottom:8px; text-transform:uppercase; }
     .project-description .project-category { font-size:1rem; opacity:0.7; margin-bottom:16px; }
     .project-description p { font-size:1rem; line-height:1.5; }
 
@@ -58,21 +60,19 @@
 
   <!-- Галерея -->
   <section class="project-gallery">
-    <div class="project-item"><img src="images/jewelry-01.jpg" alt="Jewelry" data-index="0"></div>
-    <div class="project-item"><img src="images/jewelry-02.jpg" alt="Jewelry" data-index="1"></div>
-    <div class="project-item"><img src="images/jewelry-03.jpg" alt="Jewelry" data-index="2"></div>
-    <div class="project-item"><img src="images/jewelry-cover.jpg" alt="Jewelry" data-index="3"></div>
-    <div class="project-item"><img src="images/jewelry-01.jpg" alt="Jewelry" data-index="4"></div>
+    <div class="project-item" data-images="images/accessories/aequilibrium-01.webp|images/accessories/aequilibrium-02.webp|images/accessories/aequilibrium-03.webp"><img src="images/accessories/aequilibrium-01.webp" alt="Амулет Aequilibrium"><span class="item-name">Aequilibrium</span></div>
+    <div class="project-item" data-images="images/accessories/tor-01.webp|images/accessories/tor-02.webp|images/accessories/tor-03.webp"><img src="images/accessories/tor-01.webp" alt="Амулет TOR"><span class="item-name">TOR</span></div>
+    <div class="project-item" data-images="images/accessories/trigon-01.webp|images/accessories/trigon-02.webp|images/accessories/trigon-03.webp"><img src="images/accessories/trigon-01.webp" alt="Амулет Trigon"><span class="item-name">Trigon</span></div>
+    <div class="project-item" data-images="images/accessories/trigon-wood.webp"><img src="images/accessories/trigon-wood.webp" alt="Деревянный амулет Trigon"><span class="item-name">Trigon Wood</span></div>
+    <div class="project-item" data-images="images/accessories/index.webp"><img src="images/accessories/index.webp" alt="Амулет Index"><span class="item-name">Index</span></div>
+    <div class="project-item" data-images="images/accessories/lekotropal.webp"><img src="images/accessories/lekotropal.webp" alt="Амулет Lekotropal"><span class="item-name">Lekotropal</span></div>
+    <div class="project-item" data-images="images/accessories/crow-01.webp|images/accessories/crow-02.webp"><img src="images/accessories/crow-01.webp" alt="Амулет CROW"><span class="item-name">CROW</span></div>
   </section>
 
   <!-- Описание -->
   <aside class="project-description">
-    <h1>Jewelry</h1>
-    <p class="project-category">Jewelry</p>
-    <p>
-      This jewelry collection showcases elegant forms, textures, and light interactions.
-      Each piece is carefully composed to highlight craftsmanship and detail.
-    </p>
+    <h1>Аксессуары</h1>
+    <p class="project-category">Амулеты</p>
   </aside>
 
 </main>
@@ -89,15 +89,16 @@
 document.addEventListener("DOMContentLoaded", function(){
   const modal = document.getElementById('modal');
   const modalImg = document.querySelector('.modal-img');
-  const images = document.querySelectorAll('.project-gallery img');
+  const items = document.querySelectorAll('.project-item');
   const prevBtn = document.querySelector('.modal-prev');
   const nextBtn = document.querySelector('.modal-next');
   const closeBtn = document.querySelector('.modal-close');
   let current=0;
+  let images=[];
 
-  function openModal(idx){ current=idx; modalImg.src=images[current].src; modal.style.display='flex'; modalImg.classList.remove('enter-up','enter-down','exit-up','exit-down'); }
-  function slideTo(idx){ if(idx===current)return; const newSrc=images[idx].src; const direction=idx>current?'down':'up'; modalImg.classList.remove('enter-up','enter-down','exit-up','exit-down'); modalImg.classList.add(direction==='down'?'exit-up':'exit-down'); modalImg.addEventListener('transitionend',function handler(e){ if(e.propertyName!=='transform')return; modalImg.removeEventListener('transitionend',handler); modalImg.src=newSrc; modalImg.classList.remove('exit-up','exit-down'); modalImg.classList.add(direction==='down'?'enter-down':'enter-up'); requestAnimationFrame(()=>{modalImg.classList.remove('enter-up','enter-down');}); current=idx;});}
-  images.forEach((img,idx)=>img.addEventListener('click',()=>openModal(idx)));
+  function openModal(item){ images=item.dataset.images.split('|'); current=0; modalImg.src=images[current]; modalImg.alt=item.querySelector('img').alt; modal.style.display='flex'; modalImg.classList.remove('enter-up','enter-down','exit-up','exit-down'); prevBtn.style.display=nextBtn.style.display=images.length>1?'block':'none'; }
+  function slideTo(idx){ if(idx===current)return; const newSrc=images[idx]; const direction=idx>current?'down':'up'; modalImg.classList.remove('enter-up','enter-down','exit-up','exit-down'); modalImg.classList.add(direction==='down'?'exit-up':'exit-down'); modalImg.addEventListener('transitionend',function handler(e){ if(e.propertyName!=='transform')return; modalImg.removeEventListener('transitionend',handler); modalImg.src=newSrc; modalImg.classList.remove('exit-up','exit-down'); modalImg.classList.add(direction==='down'?'enter-down':'enter-up'); requestAnimationFrame(()=>{modalImg.classList.remove('enter-up','enter-down');}); current=idx;});}
+  items.forEach(item=>item.addEventListener('click',()=>openModal(item)));
   prevBtn.addEventListener('click',()=>slideTo((current-1+images.length)%images.length));
   nextBtn.addEventListener('click',()=>slideTo((current+1)%images.length));
   closeBtn.addEventListener('click',()=>modal.style.display='none');
