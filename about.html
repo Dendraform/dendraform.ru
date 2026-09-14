@@ -88,6 +88,88 @@
       line-height: 1.55;
     }
 
+    .about-support {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      gap: 40px;
+      margin-top: 110px;
+      padding-top: 24px;
+      border-top: 1px solid #3a3a3a;
+    }
+
+    .about-support-title {
+      margin: 0 0 24px;
+      color: #FFBC00;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+    }
+
+    .about-support-description {
+      max-width: 600px;
+      color: #fff;
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    .about-support-action {
+      justify-self: end;
+      text-align: center;
+    }
+
+    .about-support-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 41px;
+      padding: 10px 14px;
+      border: 1px solid #FFBC00;
+      color: #FFBC00;
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .about-support-button:hover {
+      background: #FFBC00;
+      color: #000;
+    }
+
+    .about-support-button:focus-visible {
+      outline: 2px solid #FFBC00;
+      outline-offset: 5px;
+    }
+
+    .about-support-provider {
+      display: block;
+      margin-top: 12px;
+      color: #aaa;
+      font-size: 0.72rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 800px) {
+      .about-support {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        margin-top: 80px;
+      }
+
+      .about-support-action {
+        justify-self: start;
+      }
+
+      .about-support-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+    }
+
     .about-footer {
       display: flex;
       justify-content: space-between;
@@ -193,6 +275,17 @@
           <p>Москва.</p>
         </section>
       </div>
+
+      <section class="about-support" aria-labelledby="about-support-title">
+        <div>
+          <h2 class="about-support-title" id="about-support-title">ПОДДЕРЖАТЬ МАСТЕРСКУЮ</h2>
+          <p class="about-support-description">Dendraform — независимая авторская мастерская. Поддержка помогает приобретать инструмент и создавать новые объекты.</p>
+        </div>
+        <div class="about-support-action">
+          <a class="about-support-button" href="https://yoomoney.ru/quickpay/fundraise/widget?billNumber=1K9Q1MHQ5HG.260914">ПОДДЕРЖАТЬ</a>
+          <span class="about-support-provider">Через ЮMoney</span>
+        </div>
+      </section>
 
       <footer class="about-footer">
         <span>© 2026 Dendraform</span>
