@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Проекты Dendraform — художественные объекты и украшения</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Проекты Dendraform: авторские художественные объекты «Дендраформа», «Реактор», «Ветвь», «Факел», «Колония» и коллекция украшений.">
+  <meta name="description" content="Проекты Dendraform: авторские художественные объекты «Дендраформа», «Реактор», «Ветвь», «Факел», «Колония», «Гекс» и коллекция украшений.">
   <link rel="canonical" href="https://dendraform.ru/projects.html">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Проекты Dendraform">
@@ -122,6 +122,14 @@
       z-index: 2;
     }
 
+    .project-image video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .projects-page .project-meta { text-align: left; }
 
     .project-meta h2 { font-size: 1.6rem; margin-bottom: 6px; }
@@ -146,6 +154,14 @@
         margin: 20px 0;
         padding: 8px;
       }
+    }
+
+    @media (max-width: 600px) {
+      .topbar { padding: 8px 12px; height: 80px; flex-direction: column; justify-content: center; gap: 8px; }
+      .topbar .menu { display: flex; gap: 16px; }
+      .topbar .menu a { margin-left: 0; font-size: 14px; }
+      body.projects-page { padding-top: 90px; }
+      body.project-single .project-layout { padding: 20px 0; }
     }
   </style>
 
@@ -201,8 +217,13 @@
     <div class="project-image"><img src="images/accessories/aequilibrium-01.webp" alt="Авторские амулеты Dendraform"></div>
     <div class="project-meta"><h2>Аксессуары</h2><span>Амулеты</span></div>
   </a>
-</main>
 
+  <a href="project-object-06.html" class="project-card large">
+    <div class="project-image">
+      <video src="images/Hex/Hex-web.mp4" poster="images/Hex/Hex_03.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Гекс — вращающийся художественный объект"></video>
+    </div>
+    <div class="project-meta"><h2>Гекс</h2><span>Objects</span></div>
+  </a>
 </main>
 
 <script>
@@ -249,10 +270,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-
-  
-
-</body>
-</html>
-
-

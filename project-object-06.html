@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>«Гекс» — художественный объект Dendraform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="«Гекс» — художественный объект Dendraform с объёмной формой, сквозными отверстиями и фактурной поверхностью.">
+  <link rel="canonical" href="https://dendraform.ru/project-object-06.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="«Гекс» — художественный объект Dendraform">
+  <meta property="og:description" content="Объёмная форма, сквозные отверстия и фактурная поверхность художественного объекта «Гекс».">
+  <meta property="og:site_name" content="Dendraform">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dendraform.ru/project-object-06.html">
+  <meta property="og:image" content="https://dendraform.ru/images/Hex/Hex_05.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="«Гекс» — художественный объект Dendraform">
+  <meta name="twitter:description" content="Объёмная форма, сквозные отверстия и фактурная поверхность художественного объекта «Гекс».">
+  <meta name="twitter:image" content="https://dendraform.ru/images/Hex/Hex_05.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"VisualArtwork","name":"Гекс","description":"Художественный объект с объёмной формой, сквозными отверстиями и фактурной поверхностью.","url":"https://dendraform.ru/project-object-06.html","image":"https://dendraform.ru/images/Hex/Hex_05.jpg"}
+  </script>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* PROJECT SINGLE PAGE */
+    .project-layout {
+      padding-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      width: 100%;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      grid-column: span 4;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .project-item:hover img {
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 1000px) { .project-item { grid-column: span 6; } }
+    @media (max-width: 600px) { .project-item { grid-column: span 12; } }
+
+    .project-description {
+      max-width: 1200px;
+      margin: 20px auto 60px;
+      padding: 0 20px;
+      color: #fff;
+    }
+
+    .project-description h1 { font-size: 2rem; margin-bottom: 8px; }
+    .project-description .project-category { font-size: 1rem; opacity: 0.7; margin-bottom: 16px; }
+    .project-description p { font-size: 1rem; line-height: 1.5; }
+
+    /* ===== Modal slide animation ===== */
+    .modal {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      overflow: hidden;
+    }
+    .modal-img {
+      position: absolute;
+      max-width: 90%;
+      max-height: 90%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateX(0);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity: 1;
+    }
+    .modal-img.enter-up    { transform: translate(-50%, 100%); opacity: 0; }
+    .modal-img.enter-down  { transform: translate(-50%, -100%); opacity: 0; }
+    .modal-img.exit-up     { transform: translate(-50%, -100%); opacity: 0; }
+    .modal-img.exit-down   { transform: translate(-50%, 100%); opacity: 0; }
+
+    .modal-close,
+    .modal-prev,
+    .modal-next {
+      position: absolute;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+    }
+    .modal-close { top: 20px; right: 30px; }
+    .modal-prev  { left: 30px; top: 50%; transform: translateY(-50%); }
+    .modal-next  { right: 30px; top: 50%; transform: translateY(-50%); }
+
+    @media (max-width: 600px) {
+      .topbar { padding: 8px 12px; height: 80px; flex-direction: column; justify-content: center; gap: 8px; }
+      .topbar .menu { display: flex; gap: 16px; }
+      .topbar .menu a { margin-left: 0; font-size: 14px; }
+      body.projects-page { padding-top: 90px; }
+      body.project-single .project-layout { padding: 20px 0; }
+    }
+  </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0LQVMCHBKW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0LQVMCHBKW');
+</script>
+  
+</head>
+<body class="project-single">
+
+<header class="topbar">
+  <div class="logo">DENDRAFORM</div>
+  <nav class="menu">
+    <a href="projects.html">Projects</a>
+    <a href="dendraformium.html">Dendraformium</a>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
+
+<main class="project-layout">
+
+  <!-- Галерея проекта -->
+  <section class="project-gallery">
+    <div class="project-item"><img src="images/Hex/Hex_03.jpg" alt="Гекс — общий вид на подставке" data-index="0"></div>
+    <div class="project-item"><img src="images/Hex/Hex_05.jpg" alt="Гекс — объём и фактура" data-index="1"></div>
+    <div class="project-item"><img src="images/Hex/Hex_06.jpg" alt="Гекс — вид спереди" data-index="2"></div>
+    <div class="project-item"><img src="images/Hex/Hex_07.jpg" alt="Гекс — другой ракурс" data-index="3"></div>
+    <div class="project-item"><img src="images/Hex/Hex_08.jpg" alt="Гекс — объёмный ракурс" data-index="4"></div>
+    <div class="project-item"><img src="images/Hex/Hex_04.jpg" alt="Гекс — общий вид" data-index="5"></div>
+    <div class="project-item"><img src="images/Hex/Hex_02.jpg" alt="Гекс — верхняя грань" data-index="6"></div>
+    <div class="project-item"><img src="images/Hex/Hex_09.jpg" alt="Гекс — боковой ракурс" data-index="7"></div>
+    <div class="project-item"><img src="images/Hex/Hex_010.jpg" alt="Гекс — макро фактуры" data-index="8"></div>
+  </section>
+
+  <aside class="project-description">
+    <h1>Гекс</h1>
+    <p class="project-category">Objects</p>
+    <p>Объёмная форма со сквозными отверстиями: при повороте меняются её силуэт, свет и глубина. Фактуру и детали можно рассмотреть на фотографиях, а движение — на обложке в разделе «Проекты».</p>
+  </aside>
+
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <span class="modal-close">&times;</span>
+  <span class="modal-prev">&#10094;</span>
+  <span class="modal-next">&#10095;</span>
+  <img class="modal-img" src="" alt="">
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.querySelector('.modal-img');
+  const images = document.querySelectorAll('.project-gallery img');
+  const prevBtn = document.querySelector('.modal-prev');
+  const nextBtn = document.querySelector('.modal-next');
+  const closeBtn = document.querySelector('.modal-close');
+  let current = 0;
+  let slideTimer;
+
+  function openModal(idx) {
+    clearTimeout(slideTimer);
+    current = idx;
+    modalImg.alt = images[current].alt;
+    modalImg.src = images[current].src;
+    modalImg.style.opacity = '1';
+    modal.style.display = 'flex';
+    modalImg.classList.remove('enter-up','enter-down','exit-up','exit-down');
+  }
+
+  function slideTo(idx) {
+    clearTimeout(slideTimer);
+    current = idx;
+    modalImg.classList.remove('enter-up', 'enter-down', 'exit-up', 'exit-down');
+    modalImg.style.opacity = '0';
+    slideTimer = setTimeout(() => {
+      modalImg.src = images[current].src;
+      modalImg.alt = images[current].alt;
+      modalImg.style.opacity = '1';
+    }, 150);
+  }
+
+  images.forEach((img, idx) => img.addEventListener('click', () => openModal(idx)));
+  prevBtn.addEventListener('click', () => slideTo((current - 1 + images.length) % images.length));
+  nextBtn.addEventListener('click', () => slideTo((current + 1) % images.length));
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+});
+</script>
+
+</body>
+</html>
