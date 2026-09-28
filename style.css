@@ -906,6 +906,11 @@ body { transform: none !important; }
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+.project-back-link:visited,
+.project-back-link:active {
+  color: #ffcd02;
+}
+
 .project-back-link:hover,
 .project-back-link:focus-visible {
   transform: translateX(-4px);
