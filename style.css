@@ -1027,3 +1027,33 @@ body { transform: none !important; }
     right: 22px;
   }
 }
+
+
+/* =========================================
+   HEADER LOGO MARK
+========================================= */
+.logo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.logo-mark {
+  display: block;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+}
+
+@media (max-width: 800px) {
+  .logo a {
+    gap: 8px;
+  }
+
+  .logo-mark {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+}
