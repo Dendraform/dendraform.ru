@@ -937,3 +937,93 @@ body { transform: none !important; }
     padding-bottom: 40px;
   }
 }
+
+
+/* =========================================
+   HOME PROJECTS CTA
+========================================= */
+.projects-cta-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 40px 40px;
+  background: #000;
+}
+
+.projects-cta-panel,
+.projects-cta-panel:visited {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(1500px, 100%);
+  min-height: 190px;
+  padding: 38px 110px 38px 46px;
+  border-top: 1px solid #ffcd02;
+  border-bottom: 1px solid #ffcd02;
+  color: #fff;
+  background: #0b0b0b;
+  text-decoration: none;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.projects-cta-title {
+  font-size: clamp(1.65rem, 3.2vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.projects-cta-subtitle {
+  margin-top: 14px;
+  font-size: clamp(0.82rem, 1.2vw, 1rem);
+  font-weight: 300;
+  opacity: 0.72;
+}
+
+.projects-cta-arrow {
+  position: absolute;
+  right: 46px;
+  top: 50%;
+  color: #ffcd02;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.projects-cta-panel:hover,
+.projects-cta-panel:focus-visible {
+  color: #000;
+  background: #ffcd02;
+  outline: none;
+}
+
+.projects-cta-panel:hover .projects-cta-arrow,
+.projects-cta-panel:focus-visible .projects-cta-arrow {
+  color: #000;
+  transform: translate(8px, -50%);
+}
+
+@media (max-width: 800px) {
+  .projects-cta-slide {
+    padding: 100px 16px 24px;
+  }
+
+  .projects-cta-panel,
+  .projects-cta-panel:visited {
+    min-height: 180px;
+    padding: 28px 64px 28px 22px;
+  }
+
+  .projects-cta-subtitle {
+    max-width: 230px;
+    line-height: 1.45;
+  }
+
+  .projects-cta-arrow {
+    right: 22px;
+  }
+}
